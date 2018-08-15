@@ -22,12 +22,12 @@ def get_ys(data):
     return [float(d[1]) for d in data]
 
 
-def linear_regression(data, iterations=1000, alpha=.00001):
+def linear_regression(data, iterations=1000, alpha=.0001):
     '''Plot the data in a scatter plot diagram.'''
     x_points = get_xs(data)
     y_points = get_ys(data)
     m, c = 0.0, 0.0
-    r = range_xy(data)
+    r = range_x(data)
     for i in range(iterations):
         dm, dc = gradient(data, m=m, c=c)
         print(f'gradient(m={m},c={c} = {[dm, dc]}')
@@ -64,9 +64,9 @@ def gradient(data, m, c):
     return [2/N * dm, 2/N * dc]
 
 
-def range_xy(data):
-    '''Find the min and max xys.'''
-    min_x, max_y = min(get_xs(data)), max(get_ys(data))
+def range_x(data):
+    '''Find the min and max xs.'''
+    min_x, max_y = min(get_xs(data)), max(get_xs(data))
     return [min_x, max_y]
 
 
